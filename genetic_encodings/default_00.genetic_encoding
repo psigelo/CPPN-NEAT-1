@@ -6,7 +6,6 @@
 			{"exist": 1,"node": 0,"type": 0, "row": 0, "function": "IDENTITY"},
 			{"exist": 1,"node": 1,"type": 0, "row": 0, "function": "IDENTITY"},
 			{"exist": 1,"node": 2,"type": 2, "row": 1, "function": "SIGMOID"}
-
 		],
 		"connection_genes":
 		[

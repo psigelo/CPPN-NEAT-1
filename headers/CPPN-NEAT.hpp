@@ -1,3 +1,4 @@
+
 #ifndef CPPN_NEAT_HPP
 #define CPPN_NEAT_HPP
 
@@ -10,6 +11,10 @@
 
 namespace ANN_USM
 {
+	//===================================================================================
+	//	Niche
+	//===================================================================================
+
 	class Niche
 	{
 		public:
@@ -20,18 +25,23 @@ namespace ANN_USM
 
 			bool exist;
 
-			double	total_fitness;
+			double total_fitness;
 			
 			vector<int> organism_position;
 	};
+
+	//===================================================================================
+	//	Population
+	//===================================================================================
 
 	class Population
 	{
 		public:
 
-			void init_population(char path[]);
+			Population(char path[]);
+
+			void save_all(char path[]);
 			void save(char path[]);
-			void print_niches();
 			void epoch();
 			void spatiation();
 
@@ -42,14 +52,13 @@ namespace ANN_USM
 			double compatibility(Genetic_Encoding orgm1, Genetic_Encoding orgm2); // Distance between two ANNs
 
 			Genetic_Encoding mutation_node(Genetic_Encoding organism);
-			Genetic_Encoding mutation_create_new_node(Genetic_Encoding organism);
 			Genetic_Encoding mutation_connection(Genetic_Encoding organism);
 			Genetic_Encoding mutation_change_weight(Genetic_Encoding organism);
 			Genetic_Encoding put_randoms_weight(Genetic_Encoding organism);
 			Genetic_Encoding crossover(Genetic_Encoding orgm1, Genetic_Encoding orgm2);
 
 			int lenght;
-			int total_niches; //number of niches
+			int total_niches;
 			int last_niche_id;
 			int last_innovation;
 			int last_node;

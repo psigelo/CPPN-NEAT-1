@@ -19,7 +19,7 @@ Function::Function(string function_name) : Pi(M_PI), E(exp(1))
 	else if(function_name == "SIGMOID")
 	{		
 		this->function = &Function::Sigmoid;
-		param.push_back(1.0);
+		param.push_back(4.9);
 	}
 	else
 	{
