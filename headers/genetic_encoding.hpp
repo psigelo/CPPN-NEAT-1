@@ -72,6 +72,9 @@ namespace ANN_USM
 
 			double accumulative_result;
 			double final_result;
+
+			// Verificar
+			vector<int> outgoing_connections;
 			
 			gene_type type;
 
@@ -97,16 +100,17 @@ namespace ANN_USM
 
 			string JSON();
 
-			vector<connection_gene> get_outgoing_connections(int node);
+			// Verificar
+			//vector<connection_gene> get_outgoing_connections(int node);
+			
+			vector<double> eval(vector <double> inputs);
 
-			vector <double> eval(vector <double> inputs);
-
-			vector <connection_gene> Lconnection_genes; //List of connections genes
-			vector <node_gene> Lnode_genes;
+			vector<connection_gene> Lconnection_genes; //List of connections genes
+			vector<node_gene> Lnode_genes;
 
 			vector<int> input_nodes;			
 			vector<int> output_nodes;	
-			vector <int> row_orderer_list;
+			vector<int> row_orderer_list;
 
 			int niche;
 	};

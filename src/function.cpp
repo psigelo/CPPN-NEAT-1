@@ -23,8 +23,8 @@ Function::Function(string function_name) : Pi(M_PI), E(exp(1))
 	}
 	else
 	{
-		cerr << "error at Function::Function(): function '" << function_name << "' was not defined!" << endl;
-		cerr << "\t-> 'IDENTITY' was used instead" << endl;
+		cerr << "error at Function::Function(): function '" << function_name << "' is not defined!" << endl;
+		cerr << "\t-> 'IDENTITY' will be used instead" << endl;
 		this->function = &Function::Identity;
 	}
 
@@ -59,7 +59,7 @@ double Function::Identity(double input)
 
 double Function::Gaussian(double input)
 {
-	return param.at(0) * exp(-pow(input-param.at(1),2)/(2*pow(param.at(2),2))) + param.at(3);
+	return param.at(0) * exp(-pow(input-param.at(1),2) / (2 * pow(param.at(2),2))) + param.at(3);
 }
 
 double Function::Abs(double input)
@@ -69,5 +69,5 @@ double Function::Abs(double input)
 
 double Function::Sigmoid(double input)
 {
-	return 1/(1+exp(-param.at(0) * input));
+	return 1/(1 + exp(-param.at(0) * input));
 }

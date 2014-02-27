@@ -36,13 +36,6 @@ int main(int argc, char** argv)
 		return -1;	
 	}
 
-	/*if(argc == 2)
-	{
-		cerr << "error: missing flag's argument!" << endl;
-		print_usage(argv[0]);
-		return -1;
-	}*/
-
 	for (int i = 1; i < argc; ++i)
 	{
 		if(!strcmp(argv[i], "-t"))
