@@ -113,9 +113,8 @@ void Genetic_Encoding::add_connection(int innovation, int in, int out, double we
 		new_connection.c_g(innovation, in, out, weight, enable);
 
 		for (int i = 0; i < innovation - list_size; ++i)
-		{
 			Lconnection_genes.push_back(missing_connection_gene);
-		}
+		
 		Lconnection_genes.push_back(new_connection);
 	}
 
@@ -159,9 +158,8 @@ void Genetic_Encoding::add_node(int node, int row , gene_type type, string funct
 		new_node.n_g(node, row, type, function);
 
 		for (int i = 0; i < node - list_size; ++i)
-		{
 			Lnode_genes.push_back(missing_node_gene);
-		}
+		
 		Lnode_genes.push_back(new_node);
 	}
 
@@ -324,8 +322,7 @@ void Genetic_Encoding::load(char path[])
 
 	bool connection(false);
 	bool exist;
-//==================================
-//	Stream & Misc
+
 	double weight;
 
 	pch = strtok (buffer,delimiters);

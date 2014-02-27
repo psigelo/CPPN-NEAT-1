@@ -49,19 +49,18 @@ Population::Population(char path[])
 Genetic_Encoding Population::put_randoms_weight(Genetic_Encoding organism)
 {
 	for (int i = 0; i < (int)organism.Lconnection_genes.size(); ++i)
-		organism.Lconnection_genes.at(i).weight = 2.0*(rand()%10000)/10000.0 - 1.0;
+		organism.Lconnection_genes.at(i).weight = 2.0 * (rand() % 10000) / 10000.0 - 1.0;
 
 	return organism;
 }
 
 Genetic_Encoding Population::mutation_change_weight(Genetic_Encoding organism)
 {
-	int number_of_connections = organism.Lconnection_genes.size();
-	int connection_to_mutate = round(rand()%number_of_connections);
+	int connection_to_mutate = round(rand() % int(organism.Lconnection_genes.size()));
 
-	double delta = 2*(rand()%10000)/10000.0 - 1;
+	double delta = 2 * (rand() % 10000) / 10000.0 - 1;
 
-	organism.Lconnection_genes[connection_to_mutate].weight=delta*0.3 + 0.7*organism.Lconnection_genes[connection_to_mutate].weight;
+	organism.Lconnection_genes.at(connection_to_mutate).weight = delta * 0.3 + 0.7 * organism.Lconnection_genes.at(connection_to_mutate).weight;
 
 	return organism;
 }
@@ -106,18 +105,8 @@ Genetic_Encoding Population::mutation_node(Genetic_Encoding organism)
 
 	row = obtain_row(node, organism.Lnode_genes[organism.Lconnection_genes[connection_to_mutate].in].row, organism.Lnode_genes[ organism.Lconnection_genes[connection_to_mutate].out ].row );
 
-	string function_str;
-	switch((int)round(rand() % FUNCTION_NUM))
-	{
-		case 0: function_str = "IDENTITY"; 	break;
-		case 1: function_str = "SIGMOID"; 	break;
-		case 2: function_str = "GAUSSIAN"; 	break;
-		case 3: function_str = "ABS"; 		break;
-		case 4: function_str = "SIN"; 		break;
-		case 5: function_str = "COS"; 		break;
-	}
-
-	organism.add_node(node, row , HIDDEN, function_str);
+	Function function;
+	organism.add_node(node, row , HIDDEN, function.get_name((int)round(rand() % FUNCTION_NUM)));
 	
 	// add connections
 	organism.Lconnection_genes[connection_to_mutate].enable = 0; // disabling old connection.

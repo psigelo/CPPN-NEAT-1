@@ -12,10 +12,12 @@ class Function
 {
 	public:
 
+		Function();
 		Function(string);
 
 		double eval(double);
 
+		string get_name(int function);
 		string get_name();
 
 	private:
