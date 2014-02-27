@@ -103,9 +103,9 @@ int main(int argc, char** argv)
 	{
 		srand(time(0)); // use current time as seed for random generator
 
-		Population poblacion(argv[train_file]);
+		Population population(argv[train_file]);
 		
-		for (int i = 0; i < GENERATIONS; ++i) poblacion.epoch();
+		for (int i = 0; i < GENERATIONS; ++i) population.epoch();
 
 		string output_file(argv[train_file]);
 
@@ -117,12 +117,12 @@ int main(int argc, char** argv)
 		//==================================================
 		// Save only the champion organism
 
-			poblacion.save((char*)output_file.c_str());
+			population.save((char*)output_file.c_str());
 
 		//==================================================
 		// Save all the organism created along the training
 
-			// poblacion.save_all(output_file);
+			// population.save_all(output_file);
 
 		//==================================================
 		
