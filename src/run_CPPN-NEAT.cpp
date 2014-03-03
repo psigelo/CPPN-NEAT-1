@@ -21,6 +21,7 @@ int main(int argc, char** argv)
 {	
 	int exec_file = 0;
 	int train_file = 0;
+	bool print_champion = false;
 
 	vector<double> inputs;
 	vector<double> outputs;
@@ -69,6 +70,10 @@ int main(int argc, char** argv)
 				print_usage(argv[0]);
 				return -1;
 			}
+		}
+		else if(!strcmp(argv[i], "-p"))
+		{
+			print_champion = true;
 		}
 		else if(!strcmp(argv[i], "-h"))
 		{
@@ -126,8 +131,17 @@ int main(int argc, char** argv)
 
 		//==================================================
 		
-		cout << poblacion.champion << endl;
-		cout << "champion: " << poblacion.fitness_champion << endl;
+		if(print_champion == true)
+		{
+			cout << endl;
+			cout << "CHAMPION FITNESS: " << endl;
+			cout << "-----------------" << endl << endl;
+			cout << "\t" << population.fitness_champion << endl << endl;
+
+			cout << "CHAMPION NETWORK:" << endl;
+			cout << "-----------------" << endl << endl;
+			cout << population.champion << endl;
+		}		
 	}
 
 	//===============
