@@ -8,39 +8,42 @@
 
 using namespace std;
 
-class Function
+namespace ANN_USM
 {
-	public:
+	class Function
+	{
+		public:
 
-		Function();
-		Function(string);
+			Function();
+			Function(string);
 
-		double eval(double);
+			double eval(double);
 
-		string get_name(int function);
-		string get_name();
+			string get_name(int function);
+			string get_name();
 
-	private:
+		private:
 
-		string function_name;
+			string function_name;
 
-		// Useful numbers
-		const double Pi;
-		const double E;
+			// Useful numbers
+			const double Pi;
+			const double E;
 
-		// Function Parameters, if any
-		vector<double> param;
+			// Function Parameters, if any
+			vector<double> param;
 
-		// Function pointer
-		double (Function::*function)(double);
+			// Function pointer
+			double (Function::*function)(double);
 
-		// Functions
-		double Sin(double);
-		double Cos(double);
-		double Identity(double);
-		double Gaussian(double);
-		double Abs(double);
-		double Sigmoid(double);
-};
+			// Functions
+			double Sin(double);
+			double Cos(double);
+			double Identity(double);
+			double Gaussian(double);
+			double Abs(double);
+			double Sigmoid(double);
+	};
+}
 
 #endif

@@ -9,6 +9,8 @@
 #include "genetic_encoding.hpp"
 #include "user_definitions.hpp"
 
+using namespace std;
+
 namespace ANN_USM
 {
 	//===================================================================================

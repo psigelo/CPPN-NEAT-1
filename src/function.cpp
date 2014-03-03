@@ -2,6 +2,8 @@
 #include "function.hpp"
 #include <iostream>
 
+using namespace ANN_USM;
+
 Function::Function() : Pi(M_PI), E(exp(1)) {}
 
 Function::Function(string function_name) : Pi(M_PI), E(exp(1))

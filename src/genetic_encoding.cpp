@@ -129,7 +129,7 @@ void Genetic_Encoding::add_connection(int innovation, int in, int out, double we
 
 	if(enable == true)
 	{
-		Lnode_genes.at(in).outgoing_connections.push_back(innovation);
+		//Lnode_genes.at(in).outgoing_connections.push_back(innovation);
 		Lnode_genes.at(out).increase_incoming_connection();
 	}
 }
@@ -206,7 +206,7 @@ vector <double> Genetic_Encoding::eval(vector<double> input_values)
 }
 
 // Verificar
-/*vector<connection_gene> Genetic_Encoding::get_outgoing_connections(int node)
+vector<connection_gene> Genetic_Encoding::get_outgoing_connections(int node)
 {
 	vector<connection_gene> outgoing_connections;
 
@@ -219,7 +219,7 @@ vector <double> Genetic_Encoding::eval(vector<double> input_values)
 	}
 	
 	return outgoing_connections;
-}*/
+}
 
 void Genetic_Encoding::spread_final_result(int node, double value)
 {
@@ -232,11 +232,10 @@ void Genetic_Encoding::spread_final_result(int node, double value)
 
 		value = this->Lnode_genes.at(node).get_final_result();
 
-		//vector<connection_gene> outgoing_connections = this->get_outgoing_connections(node);
+		vector<connection_gene> outgoing_connections = this->get_outgoing_connections(node);
 
-		for (int i = 0; i < (int)Lnode_genes.at(node).outgoing_connections.size(); i++)
-			this->spread_final_result(Lconnection_genes.at(Lnode_genes.at(node).outgoing_connections.at(i)).out, value * Lconnection_genes.at(Lnode_genes.at(node).outgoing_connections.at(i)).weight);
-			//this->spread_final_result(outgoing_connections.at(i).out, value * outgoing_connections.at(i).weight);
+		for (int i = 0; i < (int)outgoing_connections.size(); i++)
+			this->spread_final_result(outgoing_connections.at(i).out, value * outgoing_connections.at(i).weight);
 	}
 }
 
